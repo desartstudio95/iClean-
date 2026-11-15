@@ -1,0 +1,6 @@
+{
+  "name": "iClean — Serviços Profissionais de Limpeza",
+  "description": "Serviços profissionais de limpeza, higienização, conservação de espaços, eventos e gestão de resíduos em Maputo, Moçambique.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
