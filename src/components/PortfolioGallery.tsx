@@ -150,11 +150,13 @@ const CATEGORY_TABS: {key: PortfolioCategory; label: string}[] = [
 interface PortfolioGalleryProps {
   items?: PortfolioItem[];
   maxItems?: number;
+  onDarkCanvas?: boolean;
 }
 
 export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   items = PORTFOLIO_ITEMS,
   maxItems,
+  onDarkCanvas = false,
 }) => {
   const [selectedCategory, setSelectedCategory] =
     useState<PortfolioCategory>('todos');
@@ -196,8 +198,19 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   return (
     <div>
       {/* Honest demonstration notice */}
-      <div className="flex items-start sm:items-center gap-2.5 text-xs text-[#17251D]/75 mb-6 bg-[#F7F9F7] border border-[#17251D]/10 rounded-xl px-4 py-3">
-        <Info className="w-4 h-4 text-[#0C482B] shrink-0 mt-0.5 sm:mt-0" aria-hidden="true" />
+      <div
+        className={`flex items-start sm:items-center gap-2.5 text-xs mb-6 rounded-xl px-4 py-3 ${
+          onDarkCanvas
+            ? 'text-white/88 bg-[#082416]/75 backdrop-blur-sm border border-white/15'
+            : 'text-[#17251D]/75 bg-[#F7F9F7] border border-[#17251D]/10'
+        }`}
+      >
+        <Info
+          className={`w-4 h-4 shrink-0 mt-0.5 sm:mt-0 ${
+            onDarkCanvas ? 'text-[#78D34B]' : 'text-[#0C482B]'
+          }`}
+          aria-hidden="true"
+        />
         <span>
           As imagens abaixo são referências visuais de demonstração do padrão de
           serviço iClean e estão preparadas para substituição por fotografias de
@@ -209,7 +222,11 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
       <div
         role="tablist"
         aria-label="Filtrar galeria por categoria"
-        className="flex flex-wrap items-center gap-1.5 p-1.5 bg-[#F7F9F7] rounded-xl border border-[#17251D]/10 w-fit mb-8"
+        className={`flex flex-wrap items-center gap-1.5 p-1.5 rounded-xl w-fit mb-8 ${
+          onDarkCanvas
+            ? 'bg-white/12 backdrop-blur-sm border border-white/20'
+            : 'bg-[#F7F9F7] border border-[#17251D]/10'
+        }`}
       >
         {CATEGORY_TABS.map((tab) => {
           const isActive = selectedCategory === tab.key;
@@ -223,10 +240,18 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                 setSelectedCategory(tab.key);
                 setLightboxIndex(null);
               }}
-              className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0C482B] ${
-                isActive
-                  ? 'bg-[#0C482B] text-white shadow-xs'
-                  : 'text-[#17251D]/75 hover:text-[#17251D] hover:bg-white/80'
+              className={`px-4 py-2 text-xs sm:text-sm font-semibold rounded-lg transition-colors whitespace-nowrap shrink-0 cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                onDarkCanvas
+                  ? `focus-visible:outline-[#78D34B] ${
+                      isActive
+                        ? 'bg-[#78D34B] text-[#092E1B] shadow-xs'
+                        : 'text-white/90 hover:text-white hover:bg-white/15'
+                    }`
+                  : `focus-visible:outline-[#0C482B] ${
+                      isActive
+                        ? 'bg-[#0C482B] text-white shadow-xs'
+                        : 'text-[#17251D]/75 hover:text-[#17251D] hover:bg-white/80'
+                    }`
               }`}
             >
               {tab.label}
@@ -237,7 +262,13 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
 
       {/* Gallery Grid */}
       {visibleItems.length === 0 ? (
-        <div className="bg-[#F7F9F7] rounded-xl p-10 text-center border border-[#17251D]/10">
+        <div
+          className={`rounded-xl p-10 text-center border ${
+            onDarkCanvas
+              ? 'bg-white/95 text-[#17251D] border-white/20'
+              : 'bg-[#F7F9F7] border-[#17251D]/10'
+          }`}
+        >
           <p className="text-base font-medium text-[#17251D]">
             Ainda não existem registos nesta categoria.
           </p>
@@ -247,7 +278,11 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
           {visibleItems.map((item, idx) => (
             <article
               key={item.id}
-              className="group bg-[#F7F9F7] rounded-xl overflow-hidden border border-[#17251D]/10 hover:border-[#0C482B]/35 transition-colors flex flex-col"
+              className={`group rounded-xl overflow-hidden border transition-colors flex flex-col ${
+                onDarkCanvas
+                  ? 'bg-[#F7F9F7]/96 backdrop-blur-sm border-white/20 hover:border-[#78D34B]/60'
+                  : 'bg-[#F7F9F7] border-[#17251D]/10 hover:border-[#0C482B]/35'
+              }`}
             >
               <button
                 type="button"

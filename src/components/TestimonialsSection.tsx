@@ -14,7 +14,13 @@ import {SERVICE_DETAILS} from '../data/pagesData';
 import {buildWhatsAppUrl, submitToConfiguredBackend} from '../utils/whatsapp';
 import {SafeImage} from './SafeImage';
 
-export const TestimonialsSection: React.FC = () => {
+interface TestimonialsSectionProps {
+  onGlobalBackground?: boolean;
+}
+
+export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
+  onGlobalBackground = false,
+}) => {
   const testimonials = siteConfig.verifiedTestimonials;
   const [activeIndex, setActiveIndex] = useState(0);
   const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
@@ -87,17 +93,27 @@ export const TestimonialsSection: React.FC = () => {
   return (
     <section
       aria-labelledby="testimonials-heading"
-      className="bg-[#F7F9F7] py-20 lg:py-24 border-b border-[#17251D]/8"
+      className={`py-20 lg:py-24 border-b ${
+        onGlobalBackground
+          ? 'bg-[#061F13]/25 border-white/12'
+          : 'bg-[#F7F9F7] border-[#17251D]/8'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold text-[#0C482B] mb-2">
+            <p
+              className={`text-sm font-semibold mb-2 ${
+                onGlobalBackground ? 'text-[#78D34B]' : 'text-[#0C482B]'
+              }`}
+            >
               Experiência dos Clientes
             </p>
             <h2
               id="testimonials-heading"
-              className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#17251D] text-balance"
+              className={`font-display text-3xl sm:text-4xl font-bold tracking-tight text-balance ${
+                onGlobalBackground ? 'text-white' : 'text-[#17251D]'
+              }`}
             >
               A confiança dos nossos clientes é a nossa maior recompensa.
             </h2>
@@ -114,7 +130,11 @@ export const TestimonialsSection: React.FC = () => {
                     )
                   }
                   aria-label="Testemunho anterior"
-                  className="w-11 h-11 rounded-lg bg-white border border-[#17251D]/15 text-[#17251D] hover:border-[#0C482B] hover:text-[#0C482B] flex items-center justify-center transition-colors cursor-pointer"
+                  className={`w-11 h-11 rounded-lg border flex items-center justify-center transition-colors cursor-pointer ${
+                    onGlobalBackground
+                      ? 'bg-white/15 border-white/25 text-white hover:bg-white/25'
+                      : 'bg-white border-[#17251D]/15 text-[#17251D] hover:border-[#0C482B] hover:text-[#0C482B]'
+                  }`}
                 >
                   <ChevronLeft className="w-5 h-5" />
                 </button>
@@ -126,7 +146,11 @@ export const TestimonialsSection: React.FC = () => {
                     )
                   }
                   aria-label="Próximo testemunho"
-                  className="w-11 h-11 rounded-lg bg-white border border-[#17251D]/15 text-[#17251D] hover:border-[#0C482B] hover:text-[#0C482B] flex items-center justify-center transition-colors cursor-pointer"
+                  className={`w-11 h-11 rounded-lg border flex items-center justify-center transition-colors cursor-pointer ${
+                    onGlobalBackground
+                      ? 'bg-white/15 border-white/25 text-white hover:bg-white/25'
+                      : 'bg-white border-[#17251D]/15 text-[#17251D] hover:border-[#0C482B] hover:text-[#0C482B]'
+                  }`}
                 >
                   <ChevronRight className="w-5 h-5" />
                 </button>
@@ -140,9 +164,18 @@ export const TestimonialsSection: React.FC = () => {
                 setFormError(null);
                 setIsFeedbackOpen(true);
               }}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0C482B] text-white text-sm font-semibold hover:bg-[#093821] transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0C482B]"
+              className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold transition-colors cursor-pointer whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-2 ${
+                onGlobalBackground
+                  ? 'bg-[#78D34B] text-[#092E1B] hover:bg-[#87DF5A] focus-visible:outline-[#78D34B]'
+                  : 'bg-[#0C482B] text-white hover:bg-[#093821] focus-visible:outline-[#0C482B]'
+              }`}
             >
-              <MessageSquarePlus className="w-4 h-4 text-[#78D34B]" aria-hidden="true" />
+              <MessageSquarePlus
+                className={`w-4 h-4 ${
+                  onGlobalBackground ? 'text-[#092E1B]' : 'text-[#78D34B]'
+                }`}
+                aria-hidden="true"
+              />
               <span>Partilhe a sua experiência.</span>
             </button>
           </div>
@@ -150,7 +183,13 @@ export const TestimonialsSection: React.FC = () => {
 
         {/* Verified Testimonials Carousel vs Honest Empty State */}
         {current ? (
-          <div className="bg-white rounded-2xl p-8 sm:p-10 lg:p-12 border border-[#17251D]/10">
+          <div
+            className={`rounded-2xl p-8 sm:p-10 lg:p-12 border ${
+              onGlobalBackground
+                ? 'bg-white/95 backdrop-blur-sm border-white/20 shadow-xl'
+                : 'bg-white border-[#17251D]/10'
+            }`}
+          >
             <div className="flex items-center justify-between gap-4 mb-6">
               <Quote className="w-8 h-8 text-[#78D34B]" aria-hidden="true" />
               <div
@@ -222,7 +261,13 @@ export const TestimonialsSection: React.FC = () => {
             </div>
           </div>
         ) : (
-          <div className="bg-white rounded-2xl p-8 sm:p-12 border border-[#17251D]/10">
+          <div
+            className={`rounded-2xl p-8 sm:p-12 border ${
+              onGlobalBackground
+                ? 'bg-white/95 backdrop-blur-sm border-white/20 shadow-xl'
+                : 'bg-white border-[#17251D]/10'
+            }`}
+          >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <div className="lg:col-span-8 space-y-4">
                 <p className="text-xs font-semibold text-[#0C482B] uppercase tracking-wider">

@@ -17,6 +17,7 @@ import {buildWhatsAppUrl, submitToConfiguredBackend} from '../utils/whatsapp';
 interface QuotationSectionProps {
   preselectedService?: string;
   sectionId?: string;
+  onGlobalBackground?: boolean;
 }
 
 interface FormState {
@@ -45,6 +46,7 @@ const FREQUENCY_OPTIONS = [
 export const QuotationSection: React.FC<QuotationSectionProps> = ({
   preselectedService = '',
   sectionId = 'orcamento',
+  onGlobalBackground = false,
 }) => {
   const [form, setForm] = useState<FormState>({
     fullName: '',
@@ -191,7 +193,11 @@ export const QuotationSection: React.FC<QuotationSectionProps> = ({
     <section
       id={sectionId}
       aria-labelledby={`${sectionId}-heading`}
-      className="bg-[#0C482B] text-white py-20 lg:py-28 scroll-mt-16"
+      className={`text-white py-20 lg:py-28 scroll-mt-16 ${
+        onGlobalBackground
+          ? 'bg-[#0C482B]/65 backdrop-blur-[2px]'
+          : 'bg-[#0C482B]'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
@@ -248,7 +254,11 @@ export const QuotationSection: React.FC<QuotationSectionProps> = ({
 
           {/* Right Column */}
           <div className="lg:col-span-7">
-            <div className="bg-white text-[#17251D] rounded-2xl p-6 sm:p-9 shadow-xl">
+            <div
+              className={`text-[#17251D] rounded-2xl p-6 sm:p-9 shadow-xl ${
+                onGlobalBackground ? 'bg-white/96 backdrop-blur-sm' : 'bg-white'
+              }`}
+            >
               {submittedData ? (
                 <div className="space-y-6" role="status" aria-live="polite">
                   <div className="flex items-start gap-4">

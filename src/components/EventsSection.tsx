@@ -7,10 +7,12 @@ import {SafeImage} from './SafeImage';
 
 interface EventsSectionProps {
   onBookEventCleaning: () => void;
+  onGlobalBackground?: boolean;
 }
 
 export const EventsSection: React.FC<EventsSectionProps> = ({
   onBookEventCleaning,
+  onGlobalBackground = false,
 }) => {
   const prefersReducedMotion = useReducedMotion();
 
@@ -18,20 +20,26 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
     <section
       id="eventos"
       aria-labelledby="events-heading"
-      className="relative py-24 lg:py-28 overflow-hidden bg-[#082416] text-white scroll-mt-16"
+      className={`relative py-24 lg:py-28 overflow-hidden text-white scroll-mt-16 ${
+        onGlobalBackground
+          ? 'bg-[#0C482B]/55 backdrop-blur-[2px] border-b border-white/12'
+          : 'bg-[#082416]'
+      }`}
     >
-      {/* Cinematic concert venue cleaning backdrop */}
-      <div className="absolute inset-0">
-        <SafeImage
-          src="/src/assets/images/service_events_venue_1794778188286.jpg"
-          alt="Equipa profissional da iClean em operação de limpeza num recinto de concerto ao ar livre"
-          className="w-full h-full object-cover object-center"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-b from-[#072415]/92 via-[#0A3420]/88 to-[#072415]/95"
-        />
-      </div>
+      {/* Only render separate backdrop image when NOT using global homepage background */}
+      {!onGlobalBackground && (
+        <div className="absolute inset-0">
+          <SafeImage
+            src="/src/assets/images/service_events_venue_1794778188286.jpg"
+            alt="Equipa profissional da iClean em operação de limpeza num recinto de concerto ao ar livre"
+            className="w-full h-full object-cover object-center"
+          />
+          <div
+            aria-hidden="true"
+            className="absolute inset-0 bg-gradient-to-b from-[#072415]/92 via-[#0A3420]/88 to-[#072415]/95"
+          />
+        </div>
+      )}
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mb-12 lg:mb-16">
@@ -44,7 +52,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
           >
             Você realiza o evento. Nós devolvemos o espaço limpo.
           </h2>
-          <p className="text-base sm:text-lg text-white/85 leading-relaxed max-w-2xl">
+          <p className="text-base sm:text-lg text-white/88 leading-relaxed max-w-2xl">
             De festivais ao ar livre e concertos a conferências empresariais em
             Maputo, asseguramos uma operação discreta e completa em todas as
             fases do seu evento.
@@ -63,7 +71,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
                 delay: prefersReducedMotion ? 0 : index * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="bg-[#0C482B]/80 backdrop-blur-sm border border-white/15 rounded-xl p-7 flex flex-col"
+              className="bg-[#082416]/78 backdrop-blur-sm border border-white/15 rounded-xl p-7 flex flex-col"
             >
               <p className="text-xs font-semibold text-[#78D34B] mb-2">
                 {stage.phase}
@@ -71,14 +79,14 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
               <h3 className="font-display text-xl font-bold tracking-tight text-white mb-2">
                 {stage.title}
               </h3>
-              <p className="text-sm text-white/85 font-medium mb-5">
+              <p className="text-sm text-white/88 font-medium mb-5">
                 {stage.description}
               </p>
               <ul className="space-y-2.5 mt-auto pt-4 border-t border-white/12">
                 {stage.highlights.map((point) => (
                   <li
                     key={point}
-                    className="flex items-start gap-2.5 text-sm text-white/80 leading-relaxed"
+                    className="flex items-start gap-2.5 text-sm text-white/82 leading-relaxed"
                   >
                     <Check
                       className="w-4 h-4 text-[#78D34B] shrink-0 mt-0.5"

@@ -2,6 +2,7 @@ import {lazy, Suspense, useState} from 'react';
 import {Footer} from './components/Footer';
 import {Navbar} from './components/Navbar';
 import {WhatsAppFloatingButton} from './components/WhatsAppFloatingButton';
+import heroGlobalBackground from './assets/images/hero_commercial_cleaning_1794778185906.jpg';
 import {HomePage} from './pages/HomePage';
 import {Link, RouterProvider, useRouter} from './router/RouterContext';
 
@@ -44,6 +45,7 @@ function AppShell() {
   const {pathname, navigate} = useRouter();
   const [selectedServiceForQuote, setSelectedServiceForQuote] =
     useState<string>('');
+  const isHome = pathname === '/';
 
   const handleGlobalQuoteAction = () => {
     if (pathname === '/') {
@@ -86,7 +88,7 @@ function AppShell() {
   };
 
   const renderPage = () => {
-    if (pathname === '/') {
+    if (isHome) {
       return (
         <HomePage
           selectedServiceForQuote={selectedServiceForQuote}
@@ -144,12 +146,42 @@ function AppShell() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#17251D]">
-      <Navbar onRequestQuote={handleGlobalQuoteAction} />
-      <main className="flex-1">
-        <Suspense fallback={<RouteLoadingFallback />}>{renderPage()}</Suspense>
-      </main>
-      <Footer />
+    <div
+      className={`min-h-screen flex flex-col relative ${
+        isHome ? 'bg-[#061F13] text-white' : 'bg-white text-[#17251D]'
+      }`}
+    >
+      {/* Global Continuous Cinematic Background Wrapper (Homepage "/" only) */}
+      {isHome && (
+        <div
+          aria-hidden="true"
+          className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
+          style={{
+            backgroundImage: `url(${heroGlobalBackground})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center center',
+            backgroundRepeat: 'no-repeat',
+          }}
+        >
+          {/* Consistent dark translucent overlay for readability across all sections */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#061F13]/72 via-[#082819]/78 to-[#051B10]/86" />
+          <div className="absolute inset-0 bg-[#072114]/30" />
+        </div>
+      )}
+
+      <div className="relative z-10 min-h-screen flex flex-col">
+        <Navbar
+          onRequestQuote={handleGlobalQuoteAction}
+          onGlobalBackground={isHome}
+        />
+        <main className="flex-1">
+          <Suspense fallback={<RouteLoadingFallback />}>
+            {renderPage()}
+          </Suspense>
+        </main>
+        <Footer onGlobalBackground={isHome} />
+      </div>
+
       <WhatsAppFloatingButton onFallbackQuote={handleGlobalQuoteAction} />
     </div>
   );

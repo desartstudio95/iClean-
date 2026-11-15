@@ -6,9 +6,13 @@ import {ICleanLogo} from './ICleanLogo';
 
 interface NavbarProps {
   onRequestQuote: () => void;
+  onGlobalBackground?: boolean;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({onRequestQuote}) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  onRequestQuote,
+  onGlobalBackground = false,
+}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const {isActive} = useRouter();
@@ -23,13 +27,16 @@ export const Navbar: React.FC<NavbarProps> = ({onRequestQuote}) => {
   }, []);
 
   const solidHeader = isScrolled || isMobileMenuOpen;
+  const useLightHeaderSurface = solidHeader && !onGlobalBackground;
 
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-colors duration-200 ${
-        solidHeader
+        useLightHeaderSurface
           ? 'bg-white/95 backdrop-blur-md border-b border-[#17251D]/10 shadow-sm'
-          : 'bg-gradient-to-b from-[#061F13]/80 to-transparent'
+          : solidHeader && onGlobalBackground
+            ? 'bg-[#072215]/88 backdrop-blur-md border-b border-white/12 shadow-sm'
+            : 'bg-gradient-to-b from-[#061F13]/75 to-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-[72px] flex items-center justify-between gap-8">
@@ -40,7 +47,7 @@ export const Navbar: React.FC<NavbarProps> = ({onRequestQuote}) => {
           aria-label="iClean — Ir para o início"
           className="focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#78D34B] rounded-md shrink-0"
         >
-          <ICleanLogo variant={solidHeader ? 'default' : 'inverted'} />
+          <ICleanLogo variant={useLightHeaderSurface ? 'default' : 'inverted'} />
         </Link>
 
         {/* Zone 2: 5 concise single-line navigation links */}
@@ -56,7 +63,7 @@ export const Navbar: React.FC<NavbarProps> = ({onRequestQuote}) => {
                 to={item.href}
                 aria-current={active ? 'page' : undefined}
                 className={`text-sm font-medium whitespace-nowrap shrink-0 transition-colors duration-150 underline-offset-8 hover:underline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#78D34B] rounded-sm ${
-                  solidHeader
+                  useLightHeaderSurface
                     ? active
                       ? 'text-[#0C482B] font-semibold underline decoration-2 decoration-[#78D34B]'
                       : 'text-[#17251D]/85 hover:text-[#0C482B]'
@@ -90,7 +97,7 @@ export const Navbar: React.FC<NavbarProps> = ({onRequestQuote}) => {
             aria-expanded={isMobileMenuOpen}
             aria-label={isMobileMenuOpen ? 'Fechar menu' : 'Abrir menu'}
             className={`md:hidden inline-flex items-center justify-center w-11 h-11 rounded-lg transition-colors cursor-pointer focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#78D34B] ${
-              solidHeader
+              useLightHeaderSurface
                 ? 'text-[#0C482B] hover:bg-[#F7F9F7]'
                 : 'text-white hover:bg-white/10'
             }`}

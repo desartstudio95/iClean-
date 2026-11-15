@@ -7,7 +7,11 @@ import {trackConversionEvent} from '../utils/analytics';
 import {buildWhatsAppUrl} from '../utils/whatsapp';
 import {ICleanLogo} from './ICleanLogo';
 
-export const Footer: React.FC = () => {
+interface FooterProps {
+  onGlobalBackground?: boolean;
+}
+
+export const Footer: React.FC<FooterProps> = ({onGlobalBackground = false}) => {
   const configuredSocials = siteConfig.social.filter(
     (s) => s.isConfigured && s.href
   );
@@ -16,7 +20,13 @@ export const Footer: React.FC = () => {
   );
 
   return (
-    <footer className="bg-[#082416] text-white border-t border-white/10">
+    <footer
+      className={`text-white border-t border-white/12 ${
+        onGlobalBackground
+          ? 'bg-[#061E12]/72 backdrop-blur-sm'
+          : 'bg-[#082416]'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
           {/* Brand Summary */}

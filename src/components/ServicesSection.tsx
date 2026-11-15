@@ -9,6 +9,7 @@ import {SafeImage} from './SafeImage';
 
 interface ServicesSectionProps {
   onSelectServiceForQuote: (serviceTitle: string) => void;
+  onGlobalBackground?: boolean;
 }
 
 const SLUG_BY_SERVICE_ID: Record<string, string> = {
@@ -22,6 +23,7 @@ const SLUG_BY_SERVICE_ID: Record<string, string> = {
 
 export const ServicesSection: React.FC<ServicesSectionProps> = ({
   onSelectServiceForQuote,
+  onGlobalBackground = false,
 }) => {
   const [activeService, setActiveService] = useState<ServiceItem | null>(null);
   const prefersReducedMotion = useReducedMotion();
@@ -39,29 +41,47 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
     <section
       id="servicos"
       aria-labelledby="services-heading"
-      className="bg-[#F7F9F7] py-20 lg:py-24 scroll-mt-16"
+      className={`py-20 lg:py-24 scroll-mt-16 ${
+        onGlobalBackground
+          ? 'bg-transparent border-b border-white/12'
+          : 'bg-[#F7F9F7]'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 lg:mb-14">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold text-[#0C482B] mb-2">
+            <p
+              className={`text-sm font-semibold mb-2 ${
+                onGlobalBackground ? 'text-[#78D34B]' : 'text-[#0C482B]'
+              }`}
+            >
               Nossos Serviços
             </p>
             <h2
               id="services-heading"
-              className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#17251D] text-balance"
+              className={`font-display text-3xl sm:text-4xl font-bold tracking-tight text-balance ${
+                onGlobalBackground ? 'text-white' : 'text-[#17251D]'
+              }`}
             >
               Soluções completas para cada espaço.
             </h2>
           </div>
           <div className="flex flex-col items-start md:items-end gap-3">
-            <p className="text-sm sm:text-base text-[#17251D]/75 max-w-md md:text-right leading-relaxed">
+            <p
+              className={`text-sm sm:text-base max-w-md md:text-right leading-relaxed ${
+                onGlobalBackground ? 'text-white/85' : 'text-[#17251D]/75'
+              }`}
+            >
               Cada serviço é planeado conforme a dimensão do imóvel, o fluxo de
               utilização e as exigências específicas de higiene.
             </p>
             <Link
               to="/servicos"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#0C482B] hover:text-[#17251D] transition-colors"
+              className={`inline-flex items-center gap-1.5 text-sm font-semibold transition-colors ${
+                onGlobalBackground
+                  ? 'text-[#78D34B] hover:text-white'
+                  : 'text-[#0C482B] hover:text-[#17251D]'
+              }`}
             >
               <span>Explorar página completa de serviços</span>
               <ArrowRight className="w-4 h-4" aria-hidden="true" />

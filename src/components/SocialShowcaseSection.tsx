@@ -34,10 +34,12 @@ const SOCIAL_GALLERY_PREVIEW = [
 
 interface SocialShowcaseSectionProps {
   onFallbackContact: () => void;
+  onGlobalBackground?: boolean;
 }
 
 export const SocialShowcaseSection: React.FC<SocialShowcaseSectionProps> = ({
   onFallbackContact,
+  onGlobalBackground = false,
 }) => {
   const instagram = siteConfig.social.find((s) => s.id === 'instagram');
   const facebook = siteConfig.social.find((s) => s.id === 'facebook');
@@ -48,21 +50,35 @@ export const SocialShowcaseSection: React.FC<SocialShowcaseSectionProps> = ({
   return (
     <section
       aria-labelledby="social-showcase-heading"
-      className="bg-white py-20 lg:py-24 border-b border-[#17251D]/8"
+      className={`py-20 lg:py-24 border-b ${
+        onGlobalBackground
+          ? 'bg-transparent border-white/12'
+          : 'bg-white border-[#17251D]/8'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-10">
           <div className="max-w-2xl">
-            <p className="text-sm font-semibold text-[#0C482B] mb-2">
+            <p
+              className={`text-sm font-semibold mb-2 ${
+                onGlobalBackground ? 'text-[#78D34B]' : 'text-[#0C482B]'
+              }`}
+            >
               Segue-nos nas redes sociais.
             </p>
             <h2
               id="social-showcase-heading"
-              className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#17251D] text-balance"
+              className={`font-display text-3xl sm:text-4xl font-bold tracking-tight text-balance ${
+                onGlobalBackground ? 'text-white' : 'text-[#17251D]'
+              }`}
             >
               Acompanhe o nosso trabalho.
             </h2>
-            <p className="mt-3 text-base text-[#17251D]/75 leading-relaxed">
+            <p
+              className={`mt-3 text-base leading-relaxed ${
+                onGlobalBackground ? 'text-white/85' : 'text-[#17251D]/75'
+              }`}
+            >
               Partilhamos rotinas de higienização, preparação de eventos e
               dicas práticas de conservação de espaços nos nossos canais
               digitais.
@@ -75,15 +91,30 @@ export const SocialShowcaseSection: React.FC<SocialShowcaseSectionProps> = ({
                 href={instagram.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#0C482B] text-white text-sm font-semibold hover:bg-[#093821] transition-colors whitespace-nowrap"
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg text-sm font-semibold transition-colors whitespace-nowrap ${
+                  onGlobalBackground
+                    ? 'bg-white/15 border border-white/25 text-white hover:bg-white/25 backdrop-blur-sm'
+                    : 'bg-[#0C482B] text-white hover:bg-[#093821]'
+                }`}
               >
                 <Instagram className="w-4 h-4 text-[#78D34B]" aria-hidden="true" />
                 <span>Instagram iClean</span>
                 <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </a>
             ) : (
-              <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-lg bg-[#F7F9F7] border border-[#17251D]/15 text-xs font-medium text-[#17251D]/75">
-                <Instagram className="w-4 h-4 text-[#0C482B]" aria-hidden="true" />
+              <span
+                className={`inline-flex items-center gap-2 px-4 py-2.5 rounded-lg text-xs font-medium border ${
+                  onGlobalBackground
+                    ? 'bg-[#082416]/75 border-white/20 text-white/85 backdrop-blur-sm'
+                    : 'bg-[#F7F9F7] border-[#17251D]/15 text-[#17251D]/75'
+                }`}
+              >
+                <Instagram
+                  className={`w-4 h-4 ${
+                    onGlobalBackground ? 'text-[#78D34B]' : 'text-[#0C482B]'
+                  }`}
+                  aria-hidden="true"
+                />
                 <span>Perfil Instagram configurável em siteConfig</span>
               </span>
             )}
@@ -93,9 +124,18 @@ export const SocialShowcaseSection: React.FC<SocialShowcaseSectionProps> = ({
                 href={facebook.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg border border-[#17251D]/20 text-[#17251D] text-sm font-semibold hover:bg-[#F7F9F7] transition-colors whitespace-nowrap"
+                className={`inline-flex items-center gap-2 px-5 py-3 rounded-lg border text-sm font-semibold transition-colors whitespace-nowrap ${
+                  onGlobalBackground
+                    ? 'bg-white/12 border-white/25 text-white hover:bg-white/20 backdrop-blur-sm'
+                    : 'border-[#17251D]/20 text-[#17251D] hover:bg-[#F7F9F7]'
+                }`}
               >
-                <Share2 className="w-4 h-4 text-[#0C482B]" aria-hidden="true" />
+                <Share2
+                  className={`w-4 h-4 ${
+                    onGlobalBackground ? 'text-[#78D34B]' : 'text-[#0C482B]'
+                  }`}
+                  aria-hidden="true"
+                />
                 <span>Facebook</span>
                 <ArrowUpRight className="w-4 h-4" aria-hidden="true" />
               </a>
@@ -133,7 +173,13 @@ export const SocialShowcaseSection: React.FC<SocialShowcaseSectionProps> = ({
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
           {SOCIAL_GALLERY_PREVIEW.map((photo) => {
             const tile = (
-              <div className="group relative aspect-square rounded-xl overflow-hidden bg-[#F7F9F7] border border-[#17251D]/10">
+              <div
+                className={`group relative aspect-square rounded-xl overflow-hidden border ${
+                  onGlobalBackground
+                    ? 'bg-[#082416]/60 border-white/20 shadow-lg'
+                    : 'bg-[#F7F9F7] border-[#17251D]/10'
+                }`}
+              >
                 <SafeImage
                   src={photo.src}
                   alt={photo.alt}

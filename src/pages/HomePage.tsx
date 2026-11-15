@@ -40,19 +40,29 @@ export const HomePage: React.FC<HomePageProps> = ({
         onRequestQuote={onScrollToQuote}
         onExploreServices={scrollToServices}
       />
-      <WhyChooseSection />
-      <ServicesSection onSelectServiceForQuote={onSelectServiceForQuote} />
+      <WhyChooseSection onGlobalBackground />
+      <ServicesSection
+        onSelectServiceForQuote={onSelectServiceForQuote}
+        onGlobalBackground
+      />
       <EventsSection
         onBookEventCleaning={() =>
           onSelectServiceForQuote('Limpeza de Eventos')
         }
+        onGlobalBackground
       />
-      <AboutSection onRequestQuote={onScrollToQuote} />
-      <HowItWorksSection />
-      <GallerySection />
-      <TestimonialsSection />
-      <SocialShowcaseSection onFallbackContact={onScrollToQuote} />
-      <QuotationSection preselectedService={selectedServiceForQuote} />
+      <AboutSection onRequestQuote={onScrollToQuote} onGlobalBackground />
+      <HowItWorksSection onGlobalBackground />
+      <GallerySection onGlobalBackground />
+      <TestimonialsSection onGlobalBackground />
+      <SocialShowcaseSection
+        onFallbackContact={onScrollToQuote}
+        onGlobalBackground
+      />
+      <QuotationSection
+        preselectedService={selectedServiceForQuote}
+        onGlobalBackground
+      />
     </>
   );
 };

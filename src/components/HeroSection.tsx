@@ -1,9 +1,7 @@
 import React from 'react';
 import {motion, useReducedMotion} from 'motion/react';
 import {ArrowRight, ChevronDown} from 'lucide-react';
-import {HERO_MEDIA} from '../data/icleanData';
 import {siteConfig} from '../config/site';
-import {SafeImage} from './SafeImage';
 
 interface HeroSectionProps {
   onRequestQuote: () => void;
@@ -19,26 +17,13 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   return (
     <section
       id="inicio"
-      className="relative min-h-[680px] lg:min-h-[820px] h-[100svh] max-h-[980px] flex items-center overflow-hidden bg-[#082416]"
+      className="relative min-h-[680px] lg:min-h-[820px] h-[100svh] max-h-[980px] flex items-center overflow-hidden bg-transparent"
     >
-      {/* Full-bleed photographic background */}
-      <div className="absolute inset-0">
-        <SafeImage
-          src={HERO_MEDIA.image}
-          alt={HERO_MEDIA.alt}
-          eager
-          className="w-full h-full object-cover object-center"
-        />
-        {/* Measured contrast scrim for WCAG AA text legibility */}
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-r from-[#061F13]/92 via-[#0A3420]/75 to-[#0C482B]/35"
-        />
-        <div
-          aria-hidden="true"
-          className="absolute inset-0 bg-gradient-to-t from-[#061F13]/70 via-transparent to-[#061F13]/35"
-        />
-      </div>
+      {/* Subtle directional left readability scrim over global background */}
+      <div
+        aria-hidden="true"
+        className="absolute inset-0 bg-gradient-to-r from-[#051B10]/55 via-[#051B10]/20 to-transparent pointer-events-none"
+      />
 
       {/* Foreground Content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-16">

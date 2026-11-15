@@ -7,16 +7,24 @@ import {SafeImage} from './SafeImage';
 
 interface AboutSectionProps {
   onRequestQuote: () => void;
+  onGlobalBackground?: boolean;
 }
 
-export const AboutSection: React.FC<AboutSectionProps> = ({onRequestQuote}) => {
+export const AboutSection: React.FC<AboutSectionProps> = ({
+  onRequestQuote,
+  onGlobalBackground = false,
+}) => {
   const prefersReducedMotion = useReducedMotion();
 
   return (
     <section
       id="sobre"
       aria-labelledby="about-heading"
-      className="bg-white py-20 lg:py-28 scroll-mt-16 border-b border-[#17251D]/8"
+      className={`py-20 lg:py-28 scroll-mt-16 border-b ${
+        onGlobalBackground
+          ? 'bg-transparent border-white/12'
+          : 'bg-white border-[#17251D]/8'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-stretch">
@@ -26,7 +34,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({onRequestQuote}) => {
             whileInView={{opacity: 1, y: 0}}
             viewport={{once: true, margin: '-40px'}}
             transition={{duration: 0.45, ease: [0.16, 1, 0.3, 1]}}
-            className="lg:col-span-6 min-h-[340px] lg:min-h-[480px] rounded-2xl overflow-hidden bg-[#F7F9F7]"
+            className="lg:col-span-6 min-h-[340px] lg:min-h-[480px] rounded-2xl overflow-hidden bg-[#0C482B] shadow-xl border border-white/15"
           >
             <SafeImage
               src={ABOUT_MEDIA.image}
@@ -42,7 +50,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({onRequestQuote}) => {
             whileInView={{opacity: 1, y: 0}}
             viewport={{once: true, margin: '-40px'}}
             transition={{duration: 0.45, delay: 0.08, ease: [0.16, 1, 0.3, 1]}}
-            className="lg:col-span-6 flex flex-col justify-center py-2"
+            className={`lg:col-span-6 flex flex-col justify-center ${
+              onGlobalBackground
+                ? 'bg-white/95 backdrop-blur-sm rounded-2xl p-7 sm:p-10 shadow-xl border border-white/25 text-[#17251D]'
+                : 'py-2'
+            }`}
           >
             <p className="text-sm font-semibold text-[#0C482B] mb-2">
               Sobre a iClean
@@ -54,12 +66,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({onRequestQuote}) => {
               Uma equipa comprometida com ambientes melhores.
             </h2>
 
-            <p className="text-base text-[#17251D]/80 leading-relaxed mb-4">
+            <p className="text-base text-[#17251D]/82 leading-relaxed mb-4">
               A iClean nasce em Maputo com um propósito claro: elevar o padrão
               de limpeza, higienização e conservação de espaços empresariais,
               residenciais e de eventos em Moçambique.
             </p>
-            <p className="text-base text-[#17251D]/80 leading-relaxed mb-8">
+            <p className="text-base text-[#17251D]/82 leading-relaxed mb-8">
               Acreditamos que um ambiente bem cuidado transmite confiança, protege
               a saúde de quem o utiliza e reflete respeito por cada cliente. Por
               isso, investimos continuamente em formação técnica, fardamento
@@ -68,13 +80,13 @@ export const AboutSection: React.FC<AboutSectionProps> = ({onRequestQuote}) => {
             </p>
 
             {/* Clean hairline standards grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 py-6 border-y border-[#17251D]/10 mb-8">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 py-6 border-y border-[#17251D]/12 mb-8">
               <div>
                 <div className="flex items-center gap-2 text-[#0C482B] font-semibold text-sm mb-1">
                   <ShieldCheck className="w-4 h-4 shrink-0" aria-hidden="true" />
                   <span>Supervisão ativa</span>
                 </div>
-                <p className="text-xs text-[#17251D]/70 leading-relaxed">
+                <p className="text-xs text-[#17251D]/72 leading-relaxed">
                   Acompanhamento operacional e verificação de cada entrega.
                 </p>
               </div>
@@ -83,7 +95,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({onRequestQuote}) => {
                   <Award className="w-4 h-4 shrink-0" aria-hidden="true" />
                   <span>Padrão rigoroso</span>
                 </div>
-                <p className="text-xs text-[#17251D]/70 leading-relaxed">
+                <p className="text-xs text-[#17251D]/72 leading-relaxed">
                   Produtos seguros e métodos específicos por tipo de superfície.
                 </p>
               </div>
@@ -92,7 +104,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({onRequestQuote}) => {
                   <MapPin className="w-4 h-4 shrink-0" aria-hidden="true" />
                   <span>Base em Maputo</span>
                 </div>
-                <p className="text-xs text-[#17251D]/70 leading-relaxed">
+                <p className="text-xs text-[#17251D]/72 leading-relaxed">
                   Atendimento ágil na Cidade de Maputo e arredores.
                 </p>
               </div>

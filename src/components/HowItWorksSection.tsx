@@ -15,22 +15,38 @@ const stepIcons: Record<ProcessStep['iconName'], React.ReactNode> = {
   CheckCircle2: <CheckCircle2 className="w-5 h-5 text-[#0C482B]" aria-hidden="true" />,
 };
 
-export const HowItWorksSection: React.FC = () => {
+interface HowItWorksSectionProps {
+  onGlobalBackground?: boolean;
+}
+
+export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
+  onGlobalBackground = false,
+}) => {
   const prefersReducedMotion = useReducedMotion();
 
   return (
     <section
       aria-labelledby="how-it-works-heading"
-      className="bg-[#F7F9F7] py-20 lg:py-24"
+      className={`py-20 lg:py-24 ${
+        onGlobalBackground
+          ? 'bg-[#061F13]/25 border-b border-white/12'
+          : 'bg-[#F7F9F7]'
+      }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mb-12 lg:mb-14">
-          <p className="text-sm font-semibold text-[#0C482B] mb-2">
+          <p
+            className={`text-sm font-semibold mb-2 ${
+              onGlobalBackground ? 'text-[#78D34B]' : 'text-[#0C482B]'
+            }`}
+          >
             Como Funciona
           </p>
           <h2
             id="how-it-works-heading"
-            className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#17251D] text-balance"
+            className={`font-display text-3xl sm:text-4xl font-bold tracking-tight text-balance ${
+              onGlobalBackground ? 'text-white' : 'text-[#17251D]'
+            }`}
           >
             Um processo simples do primeiro contacto à entrega.
           </h2>
@@ -48,7 +64,11 @@ export const HowItWorksSection: React.FC = () => {
                 delay: prefersReducedMotion ? 0 : index * 0.07,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="bg-white rounded-xl p-6 sm:p-7 border border-[#17251D]/10 flex flex-col"
+              className={`rounded-xl p-6 sm:p-7 border flex flex-col ${
+                onGlobalBackground
+                  ? 'bg-white/95 backdrop-blur-sm border-white/25 shadow-lg'
+                  : 'bg-white border-[#17251D]/10'
+              }`}
             >
               <div className="flex items-center justify-between gap-4 mb-6">
                 <span className="font-display text-3xl font-bold text-[#0C482B] tabular-nums">
@@ -62,7 +82,7 @@ export const HowItWorksSection: React.FC = () => {
               <h3 className="font-display text-xl font-semibold text-[#17251D] mb-2.5">
                 {step.number}. {step.title}
               </h3>
-              <p className="text-sm text-[#17251D]/75 leading-relaxed">
+              <p className="text-sm text-[#17251D]/78 leading-relaxed">
                 {step.description}
               </p>
             </motion.article>
