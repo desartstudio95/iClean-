@@ -65,7 +65,7 @@ export const GallerySection: React.FC<GallerySectionProps> = ({
 
         {/* Reusable Interactive Before & After Slider */}
         <div className="mb-14">
-          <BeforeAfterComparison />
+          <BeforeAfterComparison onDarkCanvas={onGlobalBackground} />
         </div>
 
         {/* Reusable Expandable Portfolio Gallery */}

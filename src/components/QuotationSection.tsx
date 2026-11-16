@@ -255,8 +255,10 @@ export const QuotationSection: React.FC<QuotationSectionProps> = ({
           {/* Right Column */}
           <div className="lg:col-span-7">
             <div
-              className={`text-[#17251D] rounded-2xl p-6 sm:p-9 shadow-xl ${
-                onGlobalBackground ? 'bg-white/96 backdrop-blur-sm' : 'bg-white'
+              className={`text-[#17251D] rounded-2xl p-6 sm:p-9 shadow-[0_18px_42px_-14px_rgba(4,18,11,0.5)] ${
+                onGlobalBackground
+                  ? 'bg-gradient-to-b from-[#FFFFFF] via-[#FBFDFB] to-[#EAF6E7] border border-[#78D34B]/30'
+                  : 'bg-white'
               }`}
             >
               {submittedData ? (

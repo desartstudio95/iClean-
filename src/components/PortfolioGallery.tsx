@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react';
+import {motion, useReducedMotion} from 'motion/react';
 import {
   Calendar,
   ChevronLeft,
@@ -162,6 +163,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
   const [selectedCategory, setSelectedCategory] =
     useState<PortfolioCategory>('todos');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const prefersReducedMotion = useReducedMotion();
 
   const filteredItems =
     selectedCategory === 'todos'
@@ -277,12 +279,24 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visibleItems.map((item, idx) => (
-            <article
+            <motion.article
               key={item.id}
-              className={`group rounded-xl overflow-hidden border transition-colors flex flex-col ${
+              initial={
+                onDarkCanvas && !prefersReducedMotion
+                  ? {opacity: 0, y: 14}
+                  : false
+              }
+              whileInView={{opacity: 1, y: 0}}
+              viewport={{once: true, margin: '-40px'}}
+              transition={{
+                duration: 0.4,
+                delay: prefersReducedMotion ? 0 : idx * 0.05,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className={`group overflow-hidden border transition-all duration-300 ease-out flex flex-col ${
                 onDarkCanvas
-                  ? 'bg-[#F7F9F7]/96 backdrop-blur-sm border-white/20 hover:border-[#78D34B]/60'
-                  : 'bg-[#F7F9F7] border-[#17251D]/10 hover:border-[#0C482B]/35'
+                  ? 'rounded-2xl bg-gradient-to-b from-[#FFFFFF] via-[#F8FCF7] to-[#EAF6E7] border-[#78D34B]/28 shadow-[0_12px_28px_-12px_rgba(6,31,19,0.36)] hover:shadow-[0_20px_40px_-14px_rgba(12,72,43,0.44)] hover:border-[#78D34B]/65 motion-safe:hover:-translate-y-1'
+                  : 'rounded-xl bg-[#F7F9F7] border-[#17251D]/10 hover:border-[#0C482B]/35'
               }`}
             >
               <button
@@ -308,7 +322,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
               </button>
 
               <div className="p-5 flex-1 flex flex-col">
-                <div className="flex flex-wrap items-center gap-2 text-xs text-[#17251D]/70 mb-1.5">
+                <div className="flex flex-wrap items-center gap-2 text-xs text-[#17251D]/72 mb-1.5">
                   <span className="font-semibold text-[#0C482B]">
                     {item.categoryLabel}
                   </span>
@@ -320,10 +334,14 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                   )}
                 </div>
 
-                <h3 className="font-display text-lg font-semibold text-[#17251D] mb-1.5">
+                <h3
+                  className={`font-display text-lg font-semibold mb-1.5 ${
+                    onDarkCanvas ? 'text-[#0C482B]' : 'text-[#17251D]'
+                  }`}
+                >
                   {item.title}
                 </h3>
-                <p className="text-sm text-[#17251D]/75 leading-relaxed">
+                <p className="text-sm text-[#17251D]/80 leading-relaxed">
                   {item.description}
                 </p>
 
@@ -334,7 +352,7 @@ export const PortfolioGallery: React.FC<PortfolioGalleryProps> = ({
                   </p>
                 )}
               </div>
-            </article>
+            </motion.article>
           ))}
         </div>
       )}

@@ -104,7 +104,11 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                   delay: prefersReducedMotion ? 0 : index * 0.05,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col"
+                className={`group overflow-hidden flex flex-col transition-all duration-300 ease-out ${
+                  onGlobalBackground
+                    ? 'rounded-2xl bg-gradient-to-b from-[#FFFFFF] via-[#F9FDF8] to-[#EAF6E7] border border-[#78D34B]/28 shadow-[0_14px_32px_-12px_rgba(6,31,19,0.36)] hover:shadow-[0_22px_44px_-14px_rgba(12,72,43,0.45)] hover:border-[#78D34B]/60 motion-safe:hover:-translate-y-1'
+                    : 'bg-white rounded-xl shadow-sm hover:shadow-md'
+                }`}
               >
                 <div className="aspect-[4/3] overflow-hidden bg-[#E9EFEA]">
                   <SafeImage
@@ -116,17 +120,21 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                 </div>
 
                 <div className="p-6 flex flex-col flex-1">
-                  <p className="text-xs font-medium text-[#0C482B]/80 mb-1.5">
+                  <p className="text-xs font-semibold text-[#0C482B]/85 mb-1.5">
                     {service.idealFor}
                   </p>
-                  <h3 className="font-display text-xl font-semibold text-[#17251D] mb-2.5">
+                  <h3
+                    className={`font-display text-xl font-semibold mb-2.5 ${
+                      onGlobalBackground ? 'text-[#0C482B]' : 'text-[#17251D]'
+                    }`}
+                  >
                     {service.title}
                   </h3>
-                  <p className="text-sm text-[#17251D]/75 leading-relaxed mb-6 flex-1">
+                  <p className="text-sm text-[#17251D]/82 leading-relaxed mb-6 flex-1">
                     {service.shortDescription}
                   </p>
 
-                  <div className="pt-4 border-t border-[#17251D]/8 flex items-center justify-between gap-4">
+                  <div className="pt-4 border-t border-[#0C482B]/12 flex items-center justify-between gap-4">
                     <button
                       type="button"
                       onClick={() => {
@@ -148,7 +156,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({
                     {detailMatch && (
                       <Link
                         to={`/servicos/${detailMatch.slug}`}
-                        className="text-xs font-medium text-[#17251D]/65 hover:text-[#0C482B] transition-colors"
+                        className="text-xs font-medium text-[#0C482B]/75 hover:text-[#0C482B] transition-colors"
                       >
                         Ver página
                       </Link>

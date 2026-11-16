@@ -12,6 +12,7 @@ interface BeforeAfterComparisonProps {
   afterImage?: string;
   afterAlt?: string;
   isDemonstration?: boolean;
+  onDarkCanvas?: boolean;
 }
 
 export const BeforeAfterComparison: React.FC<BeforeAfterComparisonProps> = ({
@@ -23,6 +24,7 @@ export const BeforeAfterComparison: React.FC<BeforeAfterComparisonProps> = ({
   afterImage = BEFORE_AFTER_PAIR.afterImage,
   afterAlt = BEFORE_AFTER_PAIR.afterAlt,
   isDemonstration = true,
+  onDarkCanvas = false,
 }) => {
   const [sliderPosition, setSliderPosition] = useState<number>(50);
   const sliderContainerRef = useRef<HTMLDivElement>(null);
@@ -55,13 +57,23 @@ export const BeforeAfterComparison: React.FC<BeforeAfterComparisonProps> = ({
   };
 
   return (
-    <div className="bg-[#F7F9F7] rounded-2xl p-5 sm:p-8 lg:p-10 border border-[#17251D]/10">
+    <div
+      className={`rounded-2xl p-5 sm:p-8 lg:p-10 border ${
+        onDarkCanvas
+          ? 'bg-gradient-to-br from-[#FFFFFF] via-[#F7FCF6] to-[#EAF6E7] border-[#78D34B]/30 shadow-[0_16px_36px_-14px_rgba(6,31,19,0.4)]'
+          : 'bg-[#F7F9F7] border-[#17251D]/10'
+      }`}
+    >
       <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-5 mb-6">
         <div className="max-w-2xl">
           <p className="text-xs sm:text-sm font-semibold text-[#0C482B] mb-1.5">
             {kicker}
           </p>
-          <h3 className="font-display text-2xl sm:text-3xl font-bold tracking-tight text-[#17251D] text-balance">
+          <h3
+            className={`font-display text-2xl sm:text-3xl font-bold tracking-tight text-balance ${
+              onDarkCanvas ? 'text-[#0C482B]' : 'text-[#17251D]'
+            }`}
+          >
             {headline}
           </h3>
           <p className="text-sm sm:text-base text-[#17251D]/75 mt-2 leading-relaxed">

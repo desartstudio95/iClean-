@@ -64,9 +64,9 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
                 delay: prefersReducedMotion ? 0 : index * 0.07,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className={`rounded-xl p-6 sm:p-7 border flex flex-col ${
+              className={`group rounded-2xl p-6 sm:p-7 border flex flex-col transition-all duration-300 ease-out ${
                 onGlobalBackground
-                  ? 'bg-white/95 backdrop-blur-sm border-white/25 shadow-lg'
+                  ? 'bg-gradient-to-br from-[#FFFFFF] via-[#F7FCF6] to-[#EAF6E7] border-[#78D34B]/30 shadow-[0_12px_28px_-12px_rgba(6,31,19,0.35)] hover:shadow-[0_20px_40px_-14px_rgba(12,72,43,0.42)] hover:border-[#78D34B]/65 motion-safe:hover:-translate-y-1'
                   : 'bg-white border-[#17251D]/10'
               }`}
             >
@@ -74,15 +74,25 @@ export const HowItWorksSection: React.FC<HowItWorksSectionProps> = ({
                 <span className="font-display text-3xl font-bold text-[#0C482B] tabular-nums">
                   {step.number}.
                 </span>
-                <div className="w-11 h-11 rounded-lg bg-[#78D34B]/25 flex items-center justify-center shrink-0">
+                <div
+                  className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-200 ${
+                    onGlobalBackground
+                      ? 'bg-gradient-to-br from-[#EAF6E7] to-[#78D34B]/35 border border-[#78D34B]/45 group-hover:to-[#78D34B]/55'
+                      : 'bg-[#78D34B]/25'
+                  }`}
+                >
                   {stepIcons[step.iconName]}
                 </div>
               </div>
 
-              <h3 className="font-display text-xl font-semibold text-[#17251D] mb-2.5">
+              <h3
+                className={`font-display text-xl font-semibold mb-2.5 ${
+                  onGlobalBackground ? 'text-[#0C482B]' : 'text-[#17251D]'
+                }`}
+              >
                 {step.number}. {step.title}
               </h3>
-              <p className="text-sm text-[#17251D]/78 leading-relaxed">
+              <p className="text-sm text-[#17251D]/82 leading-relaxed">
                 {step.description}
               </p>
             </motion.article>

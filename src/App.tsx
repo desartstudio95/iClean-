@@ -1,8 +1,8 @@
 import {lazy, Suspense, useState} from 'react';
 import {Footer} from './components/Footer';
+import {LandingBackgroundSlideshow} from './components/LandingBackgroundSlideshow';
 import {Navbar} from './components/Navbar';
 import {WhatsAppFloatingButton} from './components/WhatsAppFloatingButton';
-import {IMAGES} from './assets/images';
 import {HomePage} from './pages/HomePage';
 import {Link, RouterProvider, useRouter} from './router/RouterContext';
 
@@ -151,23 +151,8 @@ function AppShell() {
         isHome ? 'bg-[#061F13] text-white' : 'bg-white text-[#17251D]'
       }`}
     >
-      {/* Global Continuous Cinematic Background Wrapper (Homepage "/" only) */}
-      {isHome && (
-        <div
-          aria-hidden="true"
-          className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
-          style={{
-            backgroundImage: `url(${IMAGES.heroCommercialCleaning})`,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center center',
-            backgroundRepeat: 'no-repeat',
-          }}
-        >
-          {/* Consistent dark translucent overlay for readability across all sections */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#061F13]/72 via-[#082819]/78 to-[#051B10]/86" />
-          <div className="absolute inset-0 bg-[#072114]/30" />
-        </div>
-      )}
+      {/* Global Continuous Cinematic Slideshow Background (Homepage "/" only) */}
+      {isHome && <LandingBackgroundSlideshow />}
 
       <div className="relative z-10 min-h-screen flex flex-col">
         <Navbar

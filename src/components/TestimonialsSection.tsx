@@ -186,7 +186,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           <div
             className={`rounded-2xl p-8 sm:p-10 lg:p-12 border ${
               onGlobalBackground
-                ? 'bg-white/95 backdrop-blur-sm border-white/20 shadow-xl'
+                ? 'bg-gradient-to-br from-[#FFFFFF] via-[#F7FCF6] to-[#EAF6E7] border-[#78D34B]/30 shadow-[0_16px_36px_-14px_rgba(6,31,19,0.4)]'
                 : 'bg-white border-[#17251D]/10'
             }`}
           >
@@ -264,7 +264,7 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
           <div
             className={`rounded-2xl p-8 sm:p-12 border ${
               onGlobalBackground
-                ? 'bg-white/95 backdrop-blur-sm border-white/20 shadow-xl'
+                ? 'bg-gradient-to-br from-[#FFFFFF] via-[#F7FCF6] to-[#EAF6E7] border-[#78D34B]/30 shadow-[0_16px_36px_-14px_rgba(6,31,19,0.4)]'
                 : 'bg-white border-[#17251D]/10'
             }`}
           >
@@ -273,7 +273,11 @@ export const TestimonialsSection: React.FC<TestimonialsSectionProps> = ({
                 <p className="text-xs font-semibold text-[#0C482B] uppercase tracking-wider">
                   Avaliações Verificadas
                 </p>
-                <h3 className="font-display text-2xl sm:text-3xl font-bold text-[#17251D] text-balance">
+                <h3
+                  className={`font-display text-2xl sm:text-3xl font-bold text-balance ${
+                    onGlobalBackground ? 'text-[#0C482B]' : 'text-[#17251D]'
+                  }`}
+                >
                   Estamos a recolher avaliações reais de clientes atendidos pela iClean.
                 </h3>
                 <p className="text-base text-[#17251D]/75 leading-relaxed max-w-2xl">

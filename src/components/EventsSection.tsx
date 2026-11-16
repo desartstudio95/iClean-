@@ -72,7 +72,11 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
                 delay: prefersReducedMotion ? 0 : index * 0.08,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="bg-[#082416]/78 backdrop-blur-sm border border-white/15 rounded-xl p-7 flex flex-col"
+              className={`rounded-2xl p-7 flex flex-col border transition-all duration-300 ease-out ${
+                onGlobalBackground
+                  ? 'bg-gradient-to-br from-[#082416]/88 via-[#0A311E]/82 to-[#0C482B]/78 backdrop-blur-sm border-[#78D34B]/28 shadow-[0_14px_30px_-12px_rgba(4,18,11,0.5)] hover:border-[#78D34B]/60 motion-safe:hover:-translate-y-1'
+                  : 'bg-[#082416]/78 backdrop-blur-sm border-white/15'
+              }`}
             >
               <p className="text-xs font-semibold text-[#78D34B] mb-2">
                 {stage.phase}

@@ -52,7 +52,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             transition={{duration: 0.45, delay: 0.08, ease: [0.16, 1, 0.3, 1]}}
             className={`lg:col-span-6 flex flex-col justify-center ${
               onGlobalBackground
-                ? 'bg-white/95 backdrop-blur-sm rounded-2xl p-7 sm:p-10 shadow-xl border border-white/25 text-[#17251D]'
+                ? 'bg-gradient-to-br from-[#FFFFFF] via-[#F7FCF6] to-[#EAF6E7] rounded-2xl p-7 sm:p-10 shadow-[0_16px_36px_-14px_rgba(6,31,19,0.4)] border border-[#78D34B]/30 text-[#17251D]'
                 : 'py-2'
             }`}
           >
@@ -61,7 +61,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             </p>
             <h2
               id="about-heading"
-              className="font-display text-3xl sm:text-4xl font-bold tracking-tight text-[#17251D] text-balance mb-5"
+              className={`font-display text-3xl sm:text-4xl font-bold tracking-tight text-balance mb-5 ${
+                onGlobalBackground ? 'text-[#0C482B]' : 'text-[#17251D]'
+              }`}
             >
               Uma equipa comprometida com ambientes melhores.
             </h2>
