@@ -1,5 +1,6 @@
 import React from 'react';
 import {Clock, Mail, MapPin, MessageCircle} from 'lucide-react';
+import {IMAGES} from '../assets/images';
 import {PageHeader} from '../components/PageHeader';
 import {QuotationSection} from '../components/QuotationSection';
 import {siteConfig} from '../config/site';
@@ -28,7 +29,7 @@ export const ContactPage: React.FC = () => {
         kicker="Contactos · Maputo, Moçambique"
         title="Fale com a equipa iClean."
         description="Estamos disponíveis para avaliar as necessidades do seu espaço e preparar uma proposta clara e ajustada."
-        image="/src/assets/images/hero_commercial_cleaning_1794778185906.jpg"
+        image={IMAGES.heroCommercialCleaning}
         imageAlt="Equipa profissional da iClean em Maputo"
         breadcrumbs={[{label: 'Início', to: '/'}, {label: 'Contactos'}]}
       />

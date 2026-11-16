@@ -1,3 +1,5 @@
+import {IMAGES} from '../assets/images';
+
 export interface ServiceBenefit {
   title: string;
   description: string;
@@ -43,7 +45,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     introParagraph:
       'A nossa equipa de limpeza residencial atua com discrição, respeito pela privacidade do seu lar e produtos seguros para superfícies delicadas, garantindo frescura e bem-estar em cada divisão.',
     idealFor: 'Casas, apartamentos e mudanças',
-    image: '/src/assets/images/service_residential_villa_1794778187196.jpg',
+    image: IMAGES.serviceResidentialVilla,
     imageAlt:
       'Profissional da iClean em uniforme verde a higienizar bancada de cozinha residencial moderna',
     includedItems: [
@@ -127,7 +129,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     introParagraph:
       'Um espaço empresarial limpo transmite credibilidade imediata a clientes e parceiros, além de proporcionar condições saudáveis de trabalho. Estruturamos rotinas compatíveis com o horário de funcionamento do seu negócio.',
     idealFor: 'Escritórios, lojas, restaurantes e empresas',
-    image: '/src/assets/images/service_corporate_office_1794778186887.jpg',
+    image: IMAGES.serviceCorporateOffice,
     imageAlt:
       'Especialista de limpeza empresarial em uniforme verde a limpar mesa de vidro numa sala de reuniões',
     includedItems: [
@@ -211,7 +213,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     introParagraph:
       'Grandes momentos exigem logística discreta e eficiente. A equipa da iClean trabalha alinhada com a produção do evento para preparar o recinto, manter a higiene durante a programação e restaurar o espaço no final.',
     idealFor: 'Concertos, festivais, casamentos e eventos corporativos',
-    image: '/src/assets/images/service_events_venue_1794778188286.jpg',
+    image: IMAGES.serviceEventsVenue,
     imageAlt:
       'Equipa da iClean com fardamento verde a limpar recinto de festival e concertos ao ar livre',
     includedItems: [
@@ -296,7 +298,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     introParagraph:
       'Após uma construção ou remodelação, a poeira fina e os vestígios de obra exigem equipamentos e técnicas próprias para não riscar vidros, loiças ou pavimentos novos. Preparamos o imóvel para entrega imediata.',
     idealFor: 'Construtoras, arquitetos e imóveis recém-remodelados',
-    image: '/src/assets/images/service_post_construction_1794778186552.jpg',
+    image: IMAGES.servicePostConstruction,
     imageAlt:
       'Técnicos da iClean em limpeza pós-obra a aspirar pavimento e limpar vidros altos',
     includedItems: [
@@ -380,7 +382,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     introParagraph:
       'As áreas comuns são o cartão de visita de qualquer condomínio residencial ou empresarial. Garantimos rotinas regulares que preservam a higiene, reduzem o desgaste dos materiais e promovem o bem-estar dos condóminos.',
     idealFor: 'Administrações de condomínios e edifícios residenciais',
-    image: '/src/assets/images/service_condominium_lobby_1794778187122.jpg',
+    image: IMAGES.serviceCondominiumLobby,
     imageAlt:
       'Operadora da iClean a desinfetar corrimão de vidro no átrio moderno de um condomínio',
     includedItems: [
@@ -465,7 +467,7 @@ export const SERVICE_DETAILS: ServiceDetail[] = [
     introParagraph:
       'Uma gestão organizada de resíduos é essencial para evitar odores, pragas e degradação visual dos espaços. Apoiamos empresas, condomínios e organizadores de eventos com recolha, acondicionamento e organização estruturada de pontos de deposição.',
     idealFor: 'Empresas, condomínios, centros comerciais e eventos',
-    image: '/src/assets/images/service_waste_management_1794778189686.jpg',
+    image: IMAGES.serviceWasteManagement,
     imageAlt:
       'Especialista da iClean a acondicionar sacos selados em estação organizada de triagem e recolha',
     includedItems: [
@@ -553,7 +555,7 @@ export const EVENTS_PAGE_DATA = {
     headline: 'Grandes eventos merecem espaços impecáveis.',
     supportingText:
       'Da preparação à limpeza final, a iClean garante ambientes organizados e limpos para que possa concentrar-se no sucesso do seu evento.',
-    image: '/src/assets/images/service_events_venue_1794778188286.jpg',
+    image: IMAGES.serviceEventsVenue,
     imageAlt:
       'Equipa profissional da iClean a operar num grande recinto de concerto ao ar livre',
   },
@@ -561,25 +563,25 @@ export const EVENTS_PAGE_DATA = {
     {
       title: 'Equipas em Concertos e Palcos',
       category: 'Shows e Concertos',
-      image: '/src/assets/images/service_events_venue_1794778188286.jpg',
+      image: IMAGES.serviceEventsVenue,
       alt: 'Equipa em uniforme verde a manter recinto de espetáculo limpo e organizado',
     },
     {
       title: 'Casamentos e Receções',
       category: 'Casamentos e Festas',
-      image: '/src/assets/images/events_wedding_reception_1794778935162.jpg',
+      image: IMAGES.eventsWeddingReception,
       alt: 'Preparação e limpeza de mesas e pavimento num recinto de casamento ao ar livre',
     },
     {
       title: 'Conferências e Exposições',
       category: 'Eventos Corporativos',
-      image: '/src/assets/images/events_corporate_conference_1794778934975.jpg',
+      image: IMAGES.eventsCorporateConference,
       alt: 'Átrio de centro de conferências e exposições higienizado durante evento empresarial',
     },
     {
       title: 'Grandes Recintos e Átrios',
       category: 'Restauro Pós-Evento',
-      image: '/src/assets/images/gallery_after_spotless_1794778190633.jpg',
+      image: IMAGES.galleryAfterSpotless,
       alt: 'Salão amplo restaurado e polido após a conclusão de evento',
     },
   ],
@@ -688,7 +690,7 @@ export const ABOUT_PAGE_DATA = {
     headline: 'Mais do que limpar espaços, cuidamos de ambientes.',
     supportingText:
       'A iClean dedica-se a proporcionar ambientes mais limpos, organizados e agradáveis, através de serviços profissionais de limpeza e conservação.',
-    image: '/src/assets/images/about_team_portrait_1794778189347.jpg',
+    image: IMAGES.aboutTeamPortrait,
     imageAlt:
       'Equipa da iClean com fardamento verde escuro em edifício moderno em Maputo',
   },
@@ -698,7 +700,7 @@ export const ABOUT_PAGE_DATA = {
       'A iClean é uma empresa moçambicana especializada em serviços profissionais de limpeza, higienização, conservação de espaços e apoio à gestão de resíduos não perigosos.',
       'Atuamos junto de clientes particulares, empresas, condomínios e organizadores de eventos em Maputo, respondendo a cada desafio com equipas preparadas, métodos estruturados e atenção genuína a cada ambiente.',
     ],
-    secondaryImage: '/src/assets/images/about_leadership_planning_1794778935236.jpg',
+    secondaryImage: IMAGES.aboutLeadershipPlanning,
     secondaryImageAlt:
       'Supervisão operacional da iClean a rever lista de controlo de qualidade',
   },

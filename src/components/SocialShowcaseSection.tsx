@@ -1,5 +1,6 @@
 import React from 'react';
 import {ArrowUpRight, Instagram, MessageCircle, Share2} from 'lucide-react';
+import {IMAGES} from '../assets/images';
 import {siteConfig} from '../config/site';
 import {trackConversionEvent} from '../utils/analytics';
 import {buildWhatsAppUrl} from '../utils/whatsapp';
@@ -7,27 +8,27 @@ import {SafeImage} from './SafeImage';
 
 const SOCIAL_GALLERY_PREVIEW = [
   {
-    src: '/src/assets/images/hero_commercial_cleaning_1794778185906.jpg',
+    src: IMAGES.heroCommercialCleaning,
     alt: 'Equipa iClean em limpeza comercial em Maputo',
   },
   {
-    src: '/src/assets/images/service_residential_villa_1794778187196.jpg',
+    src: IMAGES.serviceResidentialVilla,
     alt: 'Higienização residencial de cozinha e bancada',
   },
   {
-    src: '/src/assets/images/service_events_venue_1794778188286.jpg',
+    src: IMAGES.serviceEventsVenue,
     alt: 'Equipa iClean em evento ao ar livre',
   },
   {
-    src: '/src/assets/images/service_post_construction_1794778186552.jpg',
+    src: IMAGES.servicePostConstruction,
     alt: 'Limpeza técnica pós-obra e vidros',
   },
   {
-    src: '/src/assets/images/about_team_portrait_1794778189347.jpg',
+    src: IMAGES.aboutTeamPortrait,
     alt: 'Equipa uniformizada da iClean Moçambique',
   },
   {
-    src: '/src/assets/images/service_waste_management_1794778189686.jpg',
+    src: IMAGES.serviceWasteManagement,
     alt: 'Gestão e acondicionamento organizado de resíduos',
   },
 ];

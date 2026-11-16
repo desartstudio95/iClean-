@@ -1,6 +1,7 @@
 import React from 'react';
 import {motion, useReducedMotion} from 'motion/react';
 import {ArrowRight, Check} from 'lucide-react';
+import {IMAGES} from '../assets/images';
 import {EVENT_STAGES} from '../data/icleanData';
 import {Link} from '../router/RouterContext';
 import {SafeImage} from './SafeImage';
@@ -30,7 +31,7 @@ export const EventsSection: React.FC<EventsSectionProps> = ({
       {!onGlobalBackground && (
         <div className="absolute inset-0">
           <SafeImage
-            src="/src/assets/images/service_events_venue_1794778188286.jpg"
+            src={IMAGES.serviceEventsVenue}
             alt="Equipa profissional da iClean em operação de limpeza num recinto de concerto ao ar livre"
             className="w-full h-full object-cover object-center"
           />

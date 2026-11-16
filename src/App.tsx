@@ -2,7 +2,7 @@ import {lazy, Suspense, useState} from 'react';
 import {Footer} from './components/Footer';
 import {Navbar} from './components/Navbar';
 import {WhatsAppFloatingButton} from './components/WhatsAppFloatingButton';
-import heroGlobalBackground from './assets/images/hero_commercial_cleaning_1794778185906.jpg';
+import {IMAGES} from './assets/images';
 import {HomePage} from './pages/HomePage';
 import {Link, RouterProvider, useRouter} from './router/RouterContext';
 
@@ -157,7 +157,7 @@ function AppShell() {
           aria-hidden="true"
           className="fixed inset-0 z-0 pointer-events-none overflow-hidden"
           style={{
-            backgroundImage: `url(${heroGlobalBackground})`,
+            backgroundImage: `url(${IMAGES.heroCommercialCleaning})`,
             backgroundSize: 'cover',
             backgroundPosition: 'center center',
             backgroundRepeat: 'no-repeat',

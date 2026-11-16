@@ -1,3 +1,5 @@
+import {IMAGES} from '../assets/images';
+
 export interface FeatureItem {
   id: string;
   title: string;
@@ -57,7 +59,7 @@ export interface DemoTestimonial {
 }
 
 export const HERO_MEDIA = {
-  image: '/src/assets/images/hero_commercial_cleaning_1794778185906.jpg',
+  image: IMAGES.heroCommercialCleaning,
   alt: 'Equipa profissional da iClean com fardamento verde a higienizar um átrio comercial moderno em Maputo',
 };
 
@@ -100,7 +102,7 @@ export const SERVICES: ServiceItem[] = [
       'Manutenção diária ou periódica para escritórios, bancos, clínicas e sedes corporativas com máxima discrição.',
     fullDescription:
       'Programas contínuos de higienização e conservação concebidos para ambientes de trabalho produtivos, saudáveis e com imagem irrepreensível perante clientes e colaboradores.',
-    image: '/src/assets/images/service_corporate_office_1794778186887.jpg',
+    image: IMAGES.serviceCorporateOffice,
     imageAlt:
       'Especialista de limpeza em farda verde escura a higienizar mesa de reuniões em escritório moderno',
     idealFor: 'Escritórios, clínicas, instituições e lojas',
@@ -118,7 +120,7 @@ export const SERVICES: ServiceItem[] = [
       'Cuidado minucioso para apartamentos e moradias, garantindo conforto, frescura e segurança para a sua família.',
     fullDescription:
       'Serviços pontuais ou recorrentes de limpeza profunda e manutenção doméstica, com produtos seguros para crianças, animais de estimação e acabamentos nobres.',
-    image: '/src/assets/images/service_residential_villa_1794778187196.jpg',
+    image: IMAGES.serviceResidentialVilla,
     imageAlt:
       'Profissional da iClean a limpar bancada de mármore numa residência contemporânea luminosa',
     idealFor: 'Apartamentos, moradias e mudanças',
@@ -136,7 +138,7 @@ export const SERVICES: ServiceItem[] = [
       'Operação completa antes, durante e após concertos, feiras, conferências e celebrações corporativas ou privadas.',
     fullDescription:
       'Cobertura operacional dedicada para eventos de pequena, média e grande escala em Maputo, mantendo o recinto limpo durante toda a programação até à restauração final.',
-    image: '/src/assets/images/service_events_venue_1794778188286.jpg',
+    image: IMAGES.serviceEventsVenue,
     imageAlt:
       'Equipa coordenada de limpeza em uniforme verde a recolher e separar resíduos num recinto de concerto ao ar livre',
     idealFor: 'Concertos, festivais, conferências e casamentos',
@@ -154,7 +156,7 @@ export const SERVICES: ServiceItem[] = [
       'Remoção técnica de pó fino, cimento, tintas e resíduos de construção para entrega imediata do imóvel.',
     fullDescription:
       'Intervenção especializada após construções ou remodelações, utilizando aspiração industrial HEPA e técnicas seguras para não danificar vidros, alumínios ou pavimentos novos.',
-    image: '/src/assets/images/service_post_construction_1794778186552.jpg',
+    image: IMAGES.servicePostConstruction,
     imageAlt:
       'Técnicos de limpeza pós-obra em uniforme verde a aspirar pavimento e limpar janelas altas numa obra concluída',
     idealFor: 'Construtoras, arquitetos e imóveis recém-remodelados',
@@ -172,7 +174,7 @@ export const SERVICES: ServiceItem[] = [
       'Conservação contínua de áreas comuns, átrios, escadas, elevadores, garagens e zonas de lazer.',
     fullDescription:
       'Planos semanais ou diários para edifícios residenciais e empresariais, valorizando o património comum e garantindo higiene impecável aos moradores e visitantes.',
-    image: '/src/assets/images/service_condominium_lobby_1794778187122.jpg',
+    image: IMAGES.serviceCondominiumLobby,
     imageAlt:
       'Colaboradora da iClean a higienizar corrimão de vidro e aço inox no átrio moderno de um condomínio',
     idealFor: 'Administrações de condomínios e torres residenciais',
@@ -190,7 +192,7 @@ export const SERVICES: ServiceItem[] = [
       'Separação, acondicionamento seguro e encaminhamento organizado de resíduos sólidos para espaços mais sustentáveis.',
     fullDescription:
       'Soluções estruturadas de triagem na origem, acondicionamento sanitário e organização de pontos de recolha para empresas, condomínios e grandes eventos.',
-    image: '/src/assets/images/service_waste_management_1794778189686.jpg',
+    image: IMAGES.serviceWasteManagement,
     imageAlt:
       'Técnica em uniforme verde a organizar sacos selados numa estação sustentável de triagem e reciclagem',
     idealFor: 'Empresas, centros comerciais, condomínios e eventos',
@@ -274,7 +276,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'empresarial',
     categoryLabel: 'Empresarial',
     location: 'Polana Cimento, Maputo',
-    image: '/src/assets/images/service_corporate_office_1794778186887.jpg',
+    image: IMAGES.serviceCorporateOffice,
     imageAlt: 'Sala de reuniões empresarial higienizada pela iClean',
   },
   {
@@ -283,7 +285,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'comercial',
     categoryLabel: 'Comercial',
     location: 'Baixa de Maputo',
-    image: '/src/assets/images/hero_commercial_cleaning_1794778185906.jpg',
+    image: IMAGES.heroCommercialCleaning,
     imageAlt: 'Átrio comercial amplo com pavimento polido após limpeza iClean',
   },
   {
@@ -292,7 +294,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'residencial',
     categoryLabel: 'Residencial',
     location: 'Sommerschield, Maputo',
-    image: '/src/assets/images/service_residential_villa_1794778187196.jpg',
+    image: IMAGES.serviceResidentialVilla,
     imageAlt: 'Cozinha e sala residencial limpa e organizada',
   },
   {
@@ -301,7 +303,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'eventos',
     categoryLabel: 'Eventos',
     location: 'Costa do Sol, Maputo',
-    image: '/src/assets/images/service_events_venue_1794778188286.jpg',
+    image: IMAGES.serviceEventsVenue,
     imageAlt: 'Equipa iClean a operar em evento ao ar livre com palco e triagem',
   },
   {
@@ -310,7 +312,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'pos-obra',
     categoryLabel: 'Pós-Obra',
     location: 'Triunfo, Maputo',
-    image: '/src/assets/images/service_post_construction_1794778186552.jpg',
+    image: IMAGES.servicePostConstruction,
     imageAlt: 'Edifício comercial recém-construído em limpeza final pós-obra',
   },
   {
@@ -319,7 +321,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     category: 'comercial',
     categoryLabel: 'Comercial',
     location: 'Avenida Julius Nyerere, Maputo',
-    image: '/src/assets/images/service_condominium_lobby_1794778187122.jpg',
+    image: IMAGES.serviceCondominiumLobby,
     imageAlt: 'Átrio de condomínio com vidro e mármore impecavelmente limpos',
   },
 ];
@@ -328,14 +330,14 @@ export const BEFORE_AFTER_PAIR = {
   title: 'Transformação de Átrio Comercial Pós-Evento e Obra',
   subtitle:
     'Deslize para comparar o estado inicial com poeiras e embalagens versus a entrega final higienizada e polida.',
-  beforeImage: '/src/assets/images/gallery_before_messy_1794778189739.jpg',
+  beforeImage: IMAGES.galleryBeforeMessy,
   beforeAlt: 'Átrio comercial com poeiras, pegadas, vidros manchados e embalagens antes da limpeza',
-  afterImage: '/src/assets/images/gallery_after_spotless_1794778190633.jpg',
+  afterImage: IMAGES.galleryAfterSpotless,
   afterAlt: 'O mesmo átrio comercial com pavimento espelhado e vidros cristalinos após a intervenção',
 };
 
 export const ABOUT_MEDIA = {
-  image: '/src/assets/images/about_team_portrait_1794778189347.jpg',
+  image: IMAGES.aboutTeamPortrait,
   alt: 'Equipa da iClean com fardamento verde escuro e equipamentos ecológicos em edifício corporativo',
 };
 

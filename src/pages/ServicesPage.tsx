@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {ArrowRight} from 'lucide-react';
+import {IMAGES} from '../assets/images';
 import {PageHeader} from '../components/PageHeader';
 import {QuotationSection} from '../components/QuotationSection';
 import {ServiceCard} from '../components/ServiceCard';
@@ -34,7 +35,7 @@ export const ServicesPage: React.FC = () => {
         kicker="Serviços iClean · Maputo, Moçambique"
         title="Soluções profissionais de limpeza para cada espaço."
         description="Oferecemos serviços de limpeza, higienização e conservação adaptados às necessidades de residências, empresas, condomínios e eventos."
-        image="/src/assets/images/hero_services_overview_1794778934664.jpg"
+        image={IMAGES.heroServicesOverview}
         imageAlt="Especialistas da iClean em uniforme verde com carro de limpeza profissional em edifício moderno"
         breadcrumbs={[{label: 'Início', to: '/'}, {label: 'Serviços'}]}
         actions={

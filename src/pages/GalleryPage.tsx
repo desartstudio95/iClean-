@@ -1,5 +1,6 @@
 import React from 'react';
 import {ArrowRight} from 'lucide-react';
+import {IMAGES} from '../assets/images';
 import {BeforeAfterComparison} from '../components/BeforeAfterComparison';
 import {CtaBanner} from '../components/CtaBanner';
 import {PageHeader} from '../components/PageHeader';
@@ -27,7 +28,7 @@ export const GalleryPage: React.FC = () => {
         kicker="Portfólio Visual iClean"
         title="Os nossos resultados falam por nós."
         description="Conheça o nosso trabalho e descubra como transformamos espaços através da limpeza, organização e atenção aos detalhes."
-        image="/src/assets/images/gallery_after_spotless_1794778190633.jpg"
+        image={IMAGES.galleryAfterSpotless}
         imageAlt="Átrio comercial amplo e higienizado com pavimento espelhado pela equipa iClean"
         breadcrumbs={[{label: 'Início', to: '/'}, {label: 'Galeria'}]}
         actions={

@@ -8,6 +8,7 @@ import {
   X,
   ZoomIn,
 } from 'lucide-react';
+import {IMAGES} from '../assets/images';
 import {SafeImage} from './SafeImage';
 
 export type PortfolioCategory =
@@ -40,7 +41,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     description:
       'Limpeza detalhada de cozinha, bancadas em pedra natural, sala de estar e zonas de convívio familiar.',
     location: 'Maputo (Exemplo ilustrativo)',
-    image: '/src/assets/images/service_residential_villa_1794778187196.jpg',
+    image: IMAGES.serviceResidentialVilla,
     imageAlt:
       'Profissional de limpeza em uniforme verde a higienizar cozinha e bancada residencial',
     isDemonstration: true,
@@ -53,7 +54,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     description:
       'Manutenção de mesas de vidro, pavimentos em madeira, receção e estações de trabalho em escritórios.',
     location: 'Maputo (Exemplo ilustrativo)',
-    image: '/src/assets/images/service_corporate_office_1794778186887.jpg',
+    image: IMAGES.serviceCorporateOffice,
     imageAlt:
       'Limpeza profissional de sala de reuniões corporativa com mesa de vidro e soalho limpo',
     isDemonstration: true,
@@ -66,7 +67,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     description:
       'Equipa dedicada em campo para recolha contínua, organização de pontos de triagem e restauro do recinto.',
     location: 'Moçambique (Exemplo ilustrativo)',
-    image: '/src/assets/images/service_events_venue_1794778188286.jpg',
+    image: IMAGES.serviceEventsVenue,
     imageAlt:
       'Equipa uniformizada a recolher e separar resíduos num recinto de concerto ao ar livre',
     isDemonstration: true,
@@ -79,7 +80,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     description:
       'Aspiração de poeiras finas e limpeza de vidros altos para preparação de imóvel recém-construído.',
     location: 'Maputo (Exemplo ilustrativo)',
-    image: '/src/assets/images/service_post_construction_1794778186552.jpg',
+    image: IMAGES.servicePostConstruction,
     imageAlt:
       'Limpeza pós-obra com aspirador técnico e limpeza de grandes envidraçados',
     isDemonstration: true,
@@ -92,7 +93,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     description:
       'Higienização de corrimãos, elevadores, entradas principais e zonas comuns de circulação.',
     location: 'Maputo (Exemplo ilustrativo)',
-    image: '/src/assets/images/service_condominium_lobby_1794778187122.jpg',
+    image: IMAGES.serviceCondominiumLobby,
     imageAlt:
       'Colaboradora a desinfetar corrimão de vidro e inox no átrio de um condomínio',
     isDemonstration: true,
@@ -105,7 +106,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     description:
       'Cuidado pré-evento em tendas, mesas de receção e pavimentos exteriores antes da chegada dos convidados.',
     location: 'Maputo (Exemplo ilustrativo)',
-    image: '/src/assets/images/events_wedding_reception_1794778935162.jpg',
+    image: IMAGES.eventsWeddingReception,
     imageAlt:
       'Preparação e limpeza de mesas de vidro e pavimento em pavilhão de receção de casamento',
     isDemonstration: true,
@@ -118,7 +119,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     description:
       'Conservação diária de átrios comerciais, pavimentos em pedra polida e acessos principais.',
     location: 'Maputo (Exemplo ilustrativo)',
-    image: '/src/assets/images/hero_commercial_cleaning_1794778185906.jpg',
+    image: IMAGES.heroCommercialCleaning,
     imageAlt:
       'Equipa iClean a manter pavimento polido e vidros de átrio corporativo moderno',
     isDemonstration: true,
@@ -131,7 +132,7 @@ export const PORTFOLIO_ITEMS: PortfolioItem[] = [
     description:
       'Apoio contínuo em centros de convenções, limpeza de vidros e organização de pontos de recolha.',
     location: 'Maputo (Exemplo ilustrativo)',
-    image: '/src/assets/images/events_corporate_conference_1794778934975.jpg',
+    image: IMAGES.eventsCorporateConference,
     imageAlt:
       'Higienização de portas de vidro e átrio durante conferência corporativa',
     isDemonstration: true,
